@@ -18,7 +18,11 @@
 
 	<h1 id="title">Bienvenido, {{ name }}</h1>
 
-	<input type="text" id="name">
+	<input type="text" v-model="name" class="form-control">
+
+	<hr>
+
+	<pre>{{$data | json}}</pre>
 
 	<script type="text/javascript">
 		new Vue({
