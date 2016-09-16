@@ -14,19 +14,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <script src="vue.js"></script>
-<body>
+<body id="app">
 
-	<h1 id="title">Bienvenido, {{ name }}</h1>
-
-	<input type="text" v-model="name" class="form-control">
-
-	<hr>
-
-	<pre>{{$data | json}}</pre>
-
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1 id="title">Bienvenido, {{ name }}</h1>
+		<input type="text" v-model="name" class="form-control">
+		<hr>
+		<pre>{{$data | json}}</pre>
+	</div>
+</div>
 	<script type="text/javascript">
 		new Vue({
-			el:"body",
+			el:"#app",
 			data:{
 				name:"Dulio"
 			}
