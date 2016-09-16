@@ -18,9 +18,12 @@
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<h1 id="title">Bienvenido, {{ name }}</h1>
+		<h1 v-if="name">Bienvenido, {{ name }}</h1>
+
 		<input type="text" v-model="name" class="form-control">
+
 		<hr>
+
 		<pre>{{$data | json}}</pre>
 	</div>
 </div>
