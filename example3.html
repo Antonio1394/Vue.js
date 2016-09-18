@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="initial-scale=1">
+	<title>Styde.net | Curso de Vue.js</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<script src="vue.js"></script>
+<body id="app">
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+		<template v-if="name">
+			<h1 >{{ gender == 'm' ? 'Bienvenido':'Bienvenida'}} {{ name }}</h1>
+			<p>Espero disfrutes du visita</p>
+			<p>Tu nombre al reves es: {{ name.split('').reverse().join('')}}</p>
+		</template>
+		<p v-else>Por favor escribe tu nombre</p>
+		<form action="">
+			<input type="text" v-model="name" class="form-control">
+			<p  v-if="!name"class="alert alert-danger">Este campo es obligatorio</p>
+			<hr>
+			<input type="radio" value="f" v-model="gender" name="">Femenino
+			<input type="radio" value="m" v-model="gender" name="">Masculino
+			<p v-show="name">
+				<button type="submit" class="btn btn-primary" v-on:click="signUp">Registrar</button>
+			</p>
+		</form>
+		<pre>{{$data | json}}</pre>
+	</div>
+</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				name:"",
+				gender:""
+			},
+			methods:{
+				signUp:function(){
+					alert('enviando...')
+				}
+			}
+		});
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>
