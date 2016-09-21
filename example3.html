@@ -61,8 +61,12 @@
 					}
 				},
 				restar:function(){
-					years_php=years_php-1;
-					
+					this.years_php--;
+					if(this.years_php<=0){
+						this.years_php=0
+					}else{
+						this.years_php--;
+					}
 				}
 			}
 		});
