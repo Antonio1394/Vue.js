@@ -34,7 +34,10 @@
 			<input type="radio" value="m" v-model="gender" name="">Masculino
 			<p>Cuatos años de experiencia en PHP??</p>
 				Respuesta:<strong>{{years_php}}</strong>
-			<button class="btn" type="button" @click="years_php ++">+</button>
+			<button v-bind:class="{btn:true,'btn-danger':years_php>10}"
+					v-bind:style="{'font-size':calculateFontSize()}"
+					type="button" 
+					@click="years_php ++">+</button>
 			<button v-bind:disabled="
 					years_php==0" 
 					class="btn" 
@@ -69,7 +72,13 @@
 				restar:function(){
 					this.years_php--;
 					
+				},
+
+				calculateFontSize:function(){
+					return 10+this.years_php+'px';
 				}
+
+
 			}
 		});
 	</script>
