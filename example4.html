@@ -35,7 +35,13 @@
 			<p>Cuatos años de experiencia en PHP??</p>
 				Respuesta:<strong>{{years_php}}</strong>
 			<button class="btn" type="button" @click="years_php ++">+</button>
-			<button v-bind:disabled="years_php==0" class="btn" type="button" @click="restar()">-</button>
+			<button v-bind:disabled="
+					years_php==0" 
+					class="btn" 
+					type="button" 
+					@click="restar()">-</button>
+
+			<img src="logo.png" v-bind:title="years_php">
 			<p v-show="name">
 				<button type="submit" class="btn btn-primary" >Registrar</button>
 				<button type="button" class="btn btn-primary" @click="signUp(true, $event)">Registrar y sal del sistema</button>
