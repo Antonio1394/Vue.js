@@ -44,6 +44,9 @@
 					type="button" 
 					@click="restar()">-</button>
 
+			<p>Cuantos años de experiencia en JavaScript</p>
+			<p>Respuesta: <strong>{{years_js}}</strong></p>
+
 			<img src="logo.png" v-bind:title="years_php">
 			<p v-show="name">
 				<button type="submit" class="btn btn-primary" >Registrar</button>
@@ -60,7 +63,8 @@
 			data:{
 				name:"",
 				gender:"",
-				years_php:0
+				years_php:0,
+				years_js:0
 			},
 			methods:{
 				signUp:function(logout){
