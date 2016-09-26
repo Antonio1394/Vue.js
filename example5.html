@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="initial-scale=1">
+	<title>Styde.net | Curso de Vue.js</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<script src="vue.js"></script>
+<body id="app">
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+		<template v-if="name">
+			<h1 >{{ gender == 'm' ? 'Bienvenido':'Bienvenida'}} {{ name }}</h1>
+			<p>Espero disfrutes du visita</p>
+			<p>Tu nombre al reves es: {{ name.split('').reverse().join('')}}</p>
+		</template>
+
+		<p v-else>Por favor escribe tu nombre</p>
+		<form @submit.prevent="signUp(false)">
+			<input type="text" v-model="name" class="form-control">
+			<p  v-if="!name"class="alert alert-danger">Este campo es obligatorio</p>
+			<hr>
+			<input type="radio" value="f" v-model="gender" name="">Femenino
+			<input type="radio" value="m" v-model="gender" name="">Masculino
+			<p>Cuatos años de experiencia en PHP??</p>
+				Respuesta:<strong>{{years_php}}</strong>
+			<button v-bind:class="{btn:true,'btn-danger':years_php>10}"
+					v-bind:style="{'font-size':calculateFontSize()}"
+					type="button" 
+					@click="years_php ++">+</button>
+			<button v-bind:disabled="
+					years_php==0" 
+					class="btn" 
+					type="button" 
+					@click="restar()">-</button>
+
+			<p>Cuantos años de experiencia en JavaScript</p>
+				Respuesta: <strong>{{years_js}}</strong>
+			<button @click="years_js++"
+					type="button"
+					class="btn" 
+					>+</button>
+
+			<button @click="restarJs()"
+					type="button"
+					v-bind:disabled="years_js==0"
+					class="btn" 
+					>-</button>
+
+
+			
+			<p v-show="name">
+				<button type="submit" class="btn btn-primary" >Registrar</button>
+				<button type="button" class="btn btn-primary" @click="signUp(true, $event)">Registrar y sal del sistema</button>
+
+			</p>
+		</form>
+		<pre>{{$data | json}}</pre>
+	</div>
+</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				name:"",
+				gender:"",
+				years_php:0,
+				years_js:0
+			},
+			methods:{
+				signUp:function(logout){
+					alert(this.name+ ", Por favor espera mientras te registramos")
+					if(logout){
+						alert(this.name+ ", Saliendo del sistema")	
+					}
+				},
+				restar:function(){
+					this.years_php--;
+					
+				},
+
+				calculateFontSize:function(){
+					return 10+this.years_php+'px';
+				},
+
+				restarJs: function(){
+					this.years_js--;
+				}
+
+
+			}
+		});
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>
