@@ -57,7 +57,7 @@
 					class="btn" 
 					>-</button>
 
-
+			<hello-world></hello-world>
 			
 			<p v-show="name">
 				<button type="submit" class="btn btn-primary" >Registrar</button>
@@ -69,6 +69,10 @@
 	</div>
 </div>
 	<script type="text/javascript">
+
+		Vue.component('hello-world',{
+			template:"<h2>Hello world</h2>"
+		});
 		new Vue({
 			el:"#app",
 			data:{
