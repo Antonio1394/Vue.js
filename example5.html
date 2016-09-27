@@ -32,30 +32,10 @@
 			<hr>
 			<input type="radio" value="f" v-model="gender" name="">Femenino
 			<input type="radio" value="m" v-model="gender" name="">Masculino
-			<p>Cuatos años de experiencia en PHP??</p>
-				Respuesta:<strong>{{years_php}}</strong>
-			<button v-bind:class="{btn:true,'btn-danger':years_php>10}"
-					v-bind:style="{'font-size':calculateFontSize()}"
-					type="button" 
-					@click="years_php ++">+</button>
-			<button v-bind:disabled="
-					years_php==0" 
-					class="btn" 
-					type="button" 
-					@click="restar()">-</button>
 
-			<p>Cuantos años de experiencia en JavaScript</p>
-				Respuesta: <strong>{{years_js}}</strong>
-			<button @click="years_js++"
-					type="button"
-					class="btn" 
-					>+</button>
-
-			<button @click="restarJs()"
-					type="button"
-					v-bind:disabled="years_js==0"
-					class="btn" 
-					>-</button>
+			
+			<years-exp v-bind:years.sync="years_php" tech="PHP "></years-exp>	
+			
 
 			<hello-world></hello-world>
 			
@@ -72,6 +52,20 @@
 <script type="text/template" id="welcome_template">
 	<h1>{{ gender=='m'? 'Bienvenido':'Bienvenida'}},{{ name}}</h1>
 </script>
+
+<script type="text/template" id="years_template">
+	<p>Cuatos años de experiencia en {{tech}}??</p>
+				Respuesta:<strong>{{years}}</strong>
+			<button v-bind:class="{btn:true,'btn-danger':years_php>10}"
+					v-bind:style="{'font-size':calculateFontSize()}"
+					type="button" 
+					@click="add">+</button>
+			<button v-bind:disabled="
+					years_php==0" 
+					class="btn" 
+					type="button" 
+					@click="sub">-</button>
+</script>
 	<script type="text/javascript">
 
 		Vue.component('hello-world',{
@@ -85,6 +79,20 @@
 				name:{type:String, required:true}
 			}
 		});
+
+		Vue.component('years-exp',{
+			template:"#years_template",
+			methods:{
+				add:function(){
+					this.years++;
+				},
+				sub:function(){
+					this.years--;
+				},
+			},
+			props:['years','tech']
+		});
+
 		new Vue({
 			el:"#app",
 			data:{
