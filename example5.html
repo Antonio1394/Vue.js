@@ -20,7 +20,7 @@
 	<div class="col-md-6 col-md-offset-3">
 
 		<template v-if="name">
-			<welcome-message></welcome-message> 		
+			<welcome-message v-bind:name="name" v-bind:gender="gender"></welcome-message> 		
 			<p>Espero disfrutes du visita</p>
 			<p>Tu nombre al reves es: {{ name.split('').reverse().join('')}}</p>
 		</template>
@@ -79,7 +79,11 @@
 		});
 
 		Vue.component('welcome-message',{
-			template:'#welcome_template'
+			template:'#welcome_template',
+			props:{
+				gender:{type:String, required:false, default:'m'}, 
+				name:{type:String, required:true}
+			}
 		});
 		new Vue({
 			el:"#app",
