@@ -22,6 +22,10 @@
 		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}</li>
 	</ul>
 
+	<form >
+		<textarea v-model="note.text"></textarea>
+	</form>
+
 	<script>
 		new Vue({
 			el:'body',
