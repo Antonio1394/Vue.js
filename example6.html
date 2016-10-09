@@ -22,9 +22,9 @@
 		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}</li>
 	</ul>
 
-	<form @submit.prevent >
-		<textarea v-model="new_note.text"></textarea>
-		<button type="submit">Agergar Note</button>
+	<form @submit.prevent="createNote" class="form">
+		<textarea v-model="new_note.text" class="form-control"></textarea>
+		<button type="submit" class="btn btn-primary">Agergar Note</button>
 	</form>
 
 	<script>
@@ -48,8 +48,14 @@
 				
 				],
 
-				new_note:{text:'',author:'Antonio'}
+				new_note:{note:'' , author:'Antonio'}
+			},
+			methods:{
+				createNote:function(){
+					this.notes.push(this.new_note);
+				}
 			}
+
 		});
 	</script>
 	
