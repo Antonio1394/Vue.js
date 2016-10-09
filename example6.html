@@ -23,7 +23,7 @@
 	</ul>
 
 	<form @submit.prevent="createNote" class="form">
-		<textarea v-model="new_note.text" class="form-control"></textarea>
+		<textarea v-model="new_note.note" class="form-control"></textarea>
 		<button type="submit" class="btn btn-primary">Agergar Note</button>
 	</form>
 
@@ -48,11 +48,13 @@
 				
 				],
 
-				new_note:{note:'' , author:'Antonio'}
+				new_note: {note:'' , author:'Antonio'}
 			},
 			methods:{
 				createNote:function(){
 					this.notes.push(this.new_note);
+
+					this.new_note={note:'' , author:'Antonio'}
 				}
 			}
 
