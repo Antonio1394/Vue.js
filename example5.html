@@ -33,12 +33,10 @@
 			<input type="radio" value="f" v-model="gender" name="">Femenino
 			<input type="radio" value="m" v-model="gender" name="">Masculino
 
+			<template v-for="tech in techs">
+				<years-exp v-bind:years.sync="years_php" tech="PHP "></years-exp>
+			</template>
 			
-			<years-exp v-bind:years.sync="years_php" tech="PHP "></years-exp>
-
-			<years-exp v-bind:years.sync="Jyears_js" tech="Js "></years-exp>	
-
-
 
 			<hello-world></hello-world>
 			
