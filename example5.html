@@ -34,7 +34,7 @@
 			<input type="radio" value="m" v-model="gender" name="">Masculino
 
 			<template v-for="tech in techs">
-				<years-exp v-bind:years.sync="years_php" tech="PHP "></years-exp>
+				<years-exp v-bind:years.sync="tech.years" :tech="tech.name"></years-exp>
 			</template>
 			
 
@@ -101,7 +101,11 @@
 				name:"",
 				gender:"",
 				years_php:0,
-				years_js:0
+				years_js:0,
+				techs:[{name:'PHP', years:0},
+					   {name: 'JS', years:0},
+					   {name: 'HTML', years:0},
+				],
 			},
 			methods:{
 				signUp:function(logout){
