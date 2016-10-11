@@ -33,6 +33,12 @@
 			<input type="radio" value="f" v-model="gender" name="">Femenino
 			<input type="radio" value="m" v-model="gender" name="">Masculino
 
+			<form class="form" @submit.prevent="createTech">
+				<input type="text" class="form-control" v-model="new_tech.name">
+				<hr>
+				<button type="submit" class="btn btn-danger">Agregar</button>
+			</form>
+
 			<template v-for="tech in techs">
 				<years-exp v-bind:years.sync="tech.years" :tech="tech.name"></years-exp>
 			</template>
