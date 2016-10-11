@@ -33,10 +33,10 @@
 			<input type="radio" value="f" v-model="gender" name="">Femenino
 			<input type="radio" value="m" v-model="gender" name="">Masculino
 
-			<form class="form" @submit.prevent="createTech">
+			<form class="form">
 				<input type="text" class="form-control" v-model="new_tech.name">
 				<hr>
-				<button type="submit" class="btn btn-danger">Agregar</button>
+				<button type="submit" class="btn btn-danger">Agregar</button @click="createTech">
 			</form>
 
 			<template v-for="tech in techs">
@@ -97,6 +97,9 @@
 				sub:function(){
 					this.years--;
 				},
+				createTech:function(){
+					this.techs.push(this.new_tech);
+				}
 			},
 			props:['years','tech']
 		});
@@ -113,6 +116,7 @@
 					   {name: 'HTML', years:0},
 				],
 			},
+			new_tech:{name:'',years:0},
 			methods:{
 				signUp:function(logout){
 					alert(this.name+ ", Por favor espera mientras te registramos")
