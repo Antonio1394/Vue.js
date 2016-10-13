@@ -19,7 +19,7 @@
 	<h1>hello word</h1>
 
 	<ul v-for="note in notes">
-		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}</li>
+		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}<button class="btn btn-default">Favorito</button></li>
 	</ul>
 
 	<form @submit.prevent="createNote" class="form">
