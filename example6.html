@@ -19,7 +19,7 @@
 	<h1>hello word</h1>
 
 	<ul v-for="note in notes">
-		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}<button class="btn btn-default">Favorito</button></li>
+		<li>{{$index+1 }}:{{note.note}} por {{ note.author}}<button class="btn btn-default" @click="saveFav()">Fav</button></li>
 	</ul>
 
 	<form @submit.prevent="createNote" class="form">
@@ -55,6 +55,10 @@
 					this.notes.push(this.new_note);
 
 					this.new_note={note:'' , author:'Antonio'}
+				},
+
+				saveFav:function(){
+					alert('hola');
 				}
 			}
 
