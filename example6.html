@@ -26,6 +26,7 @@
 		<textarea v-model="new_note.note" class="form-control"></textarea>
 		<button type="submit" class="btn btn-primary">Agergar Note</button>
 	</form>
+	<pre>{{$data | json}}</pre>
 
 	<script>
 		new Vue({
@@ -51,17 +52,17 @@
 				
 				],
 
-				new_note: {note:'' , author:'Antonio'}
+				new_note: {note:'' , author:'Antonio',fav:0}
 			},
 			methods:{
 				createNote:function(){
 					this.notes.push(this.new_note);
 
-					this.new_note={note:'' , author:'Antonio'}
+					this.new_note={note:'' , author:'Antonio',fav:0}
 				},
 
 				saveFav:function(){
-					alert('hola');
+					this.notes.fav=1;
 				}
 			}
 
